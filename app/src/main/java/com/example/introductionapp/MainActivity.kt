@@ -17,6 +17,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,55 +37,59 @@ class MainActivity : ComponentActivity() {
         setContent {
             IntroductionAppTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    Column(
-                        modifier = Modifier.padding(32.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        ){
-                        Image(painter = painterResource(id = R.drawable.image_profile),
-                            contentDescription = "Profile Image",
-                            modifier = Modifier
-                                .size(150.dp)
-                                .clip(RoundedCornerShape(20.dp)),
-                            )
-                        Spacer(modifier = Modifier.height(20.dp))
-                        Text(text = "Taku Ogawa",
-                            color = Color.Gray,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.ExtraBold,
-                        )
-                        Spacer(modifier = Modifier.height(20.dp))
-                        Text(text = "職業: Androidエンジニア",
-                            color = Color.Gray,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.ExtraBold,
-                        )
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        CompanySection()
-
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        Button(
-                            modifier = Modifier.fillMaxWidth(),
-                            onClick = { /*TODO*/ },
-                            colors = ButtonDefaults.buttonColors(
-                                contentColor = Color.White,
-                                containerColor = Color.Magenta,
-                            )
-                        ) {
-                            Text(
-                                text = "詳細を表示",
-                                color = Color.White,
-                                )
-                        }
-
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        DetailSection()
-                    }
+                    MainContent()
                 }
             }
         }
     }
 }
 
+@Composable
+fun MainContent() {
+    Column(
+        modifier = Modifier.padding(32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ){
+        Image(painter = painterResource(id = R.drawable.image_profile),
+            contentDescription = "Profile Image",
+            modifier = Modifier
+                .size(150.dp)
+                .clip(RoundedCornerShape(20.dp)),
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+        Text(text = "Taku Ogawa",
+            color = Color.Gray,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.ExtraBold,
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+        Text(text = "職業: Androidエンジニア",
+            color = Color.Gray,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.ExtraBold,
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+
+        CompanySection()
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = { /*TODO*/ },
+            colors = ButtonDefaults.buttonColors(
+                contentColor = Color.White,
+                containerColor = Color.Magenta,
+            )
+        ) {
+            Text(
+                text = "詳細を表示",
+                color = Color.White,
+            )
+        }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        DetailSection()
+    }
+}
