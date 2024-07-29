@@ -18,6 +18,10 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -74,9 +78,12 @@ fun MainContent() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        var isShowDetail by remember { mutableStateOf(false) }
         Button(
             modifier = Modifier.fillMaxWidth(),
-            onClick = { /*TODO*/ },
+            onClick = {
+                isShowDetail = !isShowDetail
+            },
             colors = ButtonDefaults.buttonColors(
                 contentColor = Color.White,
                 containerColor = Color.Magenta,
@@ -90,6 +97,9 @@ fun MainContent() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        DetailSection()
+        if (isShowDetail)
+        {
+            DetailSection()
+        }
     }
 }
