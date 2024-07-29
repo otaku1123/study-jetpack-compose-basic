@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -16,7 +17,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material3.Divider
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
@@ -64,7 +66,7 @@ class MainActivity : ComponentActivity() {
 
                         Column(
                             horizontalAlignment = Alignment.Start,
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier.fillMaxWidth()
                         ) {
                             Text(
                                 text = "フリーランス",
@@ -101,6 +103,22 @@ class MainActivity : ComponentActivity() {
                                 modifier = Modifier.clip(RoundedCornerShape(1000.dp)),
                                 thickness = 2.dp
                             )
+                        }
+
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Button(
+                            modifier = Modifier.fillMaxWidth(),
+                            onClick = { /*TODO*/ },
+                            colors = ButtonDefaults.buttonColors(
+                                contentColor = Color.White,
+                                containerColor = Color.Magenta,
+                            )
+                        ) {
+                            Text(
+                                text = "詳細を表示",
+                                color = Color.White,
+                                )
                         }
                     }
                 }
